@@ -1,0 +1,35 @@
+{
+  "name": "dsl",
+  "keywords": [
+    "theia-extension"
+  ],
+  "version": "0.0.0",
+  "files": [
+    "lib",
+    "src",
+    "build",
+    "data"
+  ],
+  "dependencies": {
+    "@theia/core": "latest"
+  },
+  "devDependencies": {
+    "rimraf": "latest",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "install:languageserver": "rimraf -rf ./build && mkdir build && yarn copy:languageserver && yarn unzip:languageserver",
+    "copy:languageserver": "cp ../../server/se.mdh.idt.xtext.ecore.example.dsl.ide/build/distributions/dsl-language-server.zip .",
+    "unzip:languageserver": "unzip ./dsl-language-server.zip -d build/",
+    "prepare": "yarn run clean && yarn install:languageserver && yarn run build",
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/dsl-frontend-module",
+      "backend": "lib/node/dsl-backend-module"
+    }
+  ]
+}

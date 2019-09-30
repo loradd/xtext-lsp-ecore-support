@@ -1,0 +1,40 @@
+{
+    "name" : "DSL",
+    "scopeName" : "source.dsl",
+    "fileTypes" : ["dsl"],
+    "patterns" : [
+        { "include" : "#comments" },
+        { "name" : "keyword.dsl", "match" : "\\b(Hello)\\b" },
+        { "name" : "text.dsl", "match" : "[a-zA-Z][\\.A-Z0-9]*" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.block.dsl",
+                    "begin": "/\\*",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.dsl"
+                        }
+                    },
+                    "end": "\\*/",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.comment.dsl"
+                        }
+                    }
+                }, {
+                    "begin": "(^\\s+)?(?=//)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.whitespace.comment.leading.cs"
+                        }
+                    },
+                    "end": "(?=$)",
+                    "name":"comment.line.dsl"
+                }
+            ]
+        }
+    }
+}

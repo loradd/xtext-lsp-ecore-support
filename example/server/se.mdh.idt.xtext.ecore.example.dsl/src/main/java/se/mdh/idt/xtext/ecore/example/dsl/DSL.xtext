@@ -1,0 +1,14 @@
+grammar se.mdh.idt.xtext.ecore.example.dsl.DSL with org.eclipse.xtext.common.Terminals
+
+generate dSL "http://www.mdh.se/idt/xtext/ecore/example/dsl/DSL"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as Ecore
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' eClass = [Ecore::EClass|QualifiedName] '!';
+
+QualifiedName:
+	ID =>('.' ID)*;

@@ -1,0 +1,2 @@
+include 'se.mdh.idt.xtext.ecore.example.dsl'
+include 'se.mdh.idt.xtext.ecore.example.dsl.ide'
