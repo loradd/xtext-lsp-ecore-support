@@ -17,10 +17,11 @@ export class DslLanguageClientContribution extends BaseLanguageClientContributio
     }
 
     protected get globPatterns(): string[] {
-        return [ '**/*' + DSL_LANGUAGE_FILE_EXTENSION ];
+        return [ '**/*' + DSL_LANGUAGE_FILE_EXTENSION, '**/*.ecore' ];
     }
 
     protected get documentSelector(): string[] {
         return [ DSL_LANGUAGE_SERVER_ID ];
     }
+
 }
