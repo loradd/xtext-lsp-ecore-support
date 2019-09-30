@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id "org.xtext.xtend" version "2.0.7"
+    id 'nebula.lint' version '14.2.4'
+    id 'eclipse'
+    id 'java'
+}
+
+ext.xtendVersion = "2.19.0"
+ext.xtextVersion = "2.17.0"
+ext.ecoreVersion = "2.12.0"
+ext.guiceVersion = "3.0"
+
+repositories.jcenter()
+
+gradleLint.rules = ['unused-dependency']
+
+dependencies {
+    compile "org.eclipse.xtext:org.eclipse.xtext:${xtextVersion}"
+    compile "org.eclipse.emf:org.eclipse.emf.ecore:${ecoreVersion}"
+    compile "com.google.inject:guice:${guiceVersion}"
+}
+
+xtend {
+
+    sourceSets {
+        main.xtendOutputDir = 'src/xtend-gen'
+        test.xtendOutputDir = 'test/xtend-gen'
+    }
+
+}
+
+clean {
+    delete "src/main/xtend-gen"
+}
+
+group = 'se.mdh.idt.xtext'

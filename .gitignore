@@ -1,0 +1,9 @@
+.classpath
+.project
+src/main/xtend-gen
+bin
+.gradle
+build
+.vscode
+**._trace
+
