@@ -9,6 +9,8 @@
     "lerna": "2.4.0"
   },
   "workspaces": [
-    "dsl", "browser-app", "electron-app"
+    "dsl",
+    "browser-app",
+    "electron-app"
   ]
 }
