@@ -1,8 +1,7 @@
 .classpath
 .project
 src-gen
-xtext-gen
-emf-gen
+**/xtext-gen/se
 xtend-gen
 bin
 .gradle
